@@ -1,0 +1,26 @@
+// Bootstrap Css
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-grid";
+
+// Animate css
+@import "~animate.css/animate.min.css";
+
+// Font awesome icon Css
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+@import "~owl.carousel/dist/assets/owl.carousel.min.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.min.css";
+@import '~node-snackbar/src/sass/snackbar.sass';
+@import "../css/light/typography";
+@import "../css/light/style";
+@import "../css/light/responsive";
+.dark{
+  @import "../css/dark/style";
+  @import "../css/dark/typography";
+  @import "../css/dark/responsive";
+  .table{
+    color: #fff !important;
+  }
+  color: #8c91b6;
+  background: #1d203f;
+}
