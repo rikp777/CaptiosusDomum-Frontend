@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import {VuejsDatatableFactory} from 'vuejs-datatable'
+import { VuejsDatatableFactory } from 'vuejs-datatable'
 
-Vue.use(VuejsDatatableFactory);
+Vue.use(VuejsDatatableFactory)

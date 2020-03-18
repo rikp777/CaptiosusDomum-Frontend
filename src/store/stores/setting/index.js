@@ -20,7 +20,7 @@ const state = {
       password: 'admin123'
     }
   ]
-};
+}
 
 export default {
   namespaced: true,

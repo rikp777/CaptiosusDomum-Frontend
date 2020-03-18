@@ -67,9 +67,6 @@
     "vue-loader": "^15.7.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint",

@@ -4,9 +4,9 @@
   </div>
 </template>
 <script>
-  import {vito} from './config/init'
+import { vito } from './config/init'
 
-  export default {
+export default {
   name: 'App',
   components: {
 
