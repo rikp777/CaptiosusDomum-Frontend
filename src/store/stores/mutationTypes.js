@@ -29,3 +29,10 @@ export const global= {
       "FETCH_THERMOSTATS": "fetch_thermostats",
       "FETCH_THERMOSTAT_FAILURE": "fetch_thermostat_failure"
   }
+
+  // user
+  export const users = {
+    "FETCH_USER": "fetch_user",
+    "FETCH_USERS": "fetch_users",
+    "FETCH_USER_FAILURE": "fetch_user_failure"
+  }
