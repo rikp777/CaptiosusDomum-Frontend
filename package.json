@@ -17,7 +17,6 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "animate.css": "^3.7.2",
     "core-js": "^3.6.4",
-    "firebase": "^7.8.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "mutationobserver-shim": "^0.3.3",
