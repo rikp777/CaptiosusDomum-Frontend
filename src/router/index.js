@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import lighting from './routes/lighting.route'
+import thermostat from './routes/thermostat.route'
 // import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -15,7 +16,8 @@ const routes = [
         path: 'home',
         component: () => import('../views/home/Index'),
         children: [
-          ...lighting
+          ...lighting,
+          ...thermostat
         ]
       },
       {
