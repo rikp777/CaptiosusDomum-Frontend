@@ -20,10 +20,12 @@
       </div>
     </nav>
     <router-view/>
+    <home-dashboard></home-dashboard>
   </div>
 </template>
 <script>
   import List from '../../components/menus/ListStyle1'
+  import HomeDashboard from "./house/Dashboard";
   export default {
     name: 'NavBarStyle1',
     props: {
@@ -33,6 +35,7 @@
       items: { type: Array }
     },
     components: {
+      HomeDashboard,
       List
     },
     computed: {
