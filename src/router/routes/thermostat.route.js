@@ -5,11 +5,20 @@ export default [
       component: () => import('../../views/home/thermostat/Index'),
       children: [
         {
-          name: 'dashboard',
+          name: 'thermostatDashboard',
           path: 'dashboard',
           component: () => import('../../views/home/thermostat/Dashboard')
+        },
+        {
+          name: 'thermostatEdit',
+          path: 'edit',
+          component: () => import('../../components/thermostat/Edit')
+        },
+        {
+          name: 'thermostatAdd',
+          path: 'add',
+          component: () => import('../../components/thermostat/Add')
         }
       ]
     }
   ]
-  

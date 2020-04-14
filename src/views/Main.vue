@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>hoi</h1>
+  <div class="home container">
+
     <router-view/>
   </div>
 </template>
