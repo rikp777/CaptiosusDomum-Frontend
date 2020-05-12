@@ -18,6 +18,11 @@ export default [
           name: 'thermostatAdd',
           path: 'add',
           component: () => import('../../components/thermostat/Add')
+        },
+        {
+          name: 'thermostatDelete',
+          path: 'delete',
+          component: () => import('../../components/thermostat/Delete')
         }
       ]
     }

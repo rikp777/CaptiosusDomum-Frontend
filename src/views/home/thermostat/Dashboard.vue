@@ -5,6 +5,7 @@
         <div class="d-flex justify-content-between">
           <h2 class="card-title">Thermostat Dashboard</h2>
           <router-link :to="{ name: 'thermostatAdd' } " class="btn btn-primary float-right">Add Thermostat</router-link>
+          <router-link :to="{ name: 'thermostatDelete' } " class="btn btn-primary float-right">Delete Thermostat</router-link>
         </div>
       </div>
     </div>
