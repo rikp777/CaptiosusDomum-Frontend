@@ -23,6 +23,13 @@ export const global= {
       "FETCH_LIGHTING_FAILURE": "fetch_lighting_failure"
   }
 
+  // rooms
+  export const rooms = {
+    "FETCH_ROOM": "fetch_room",
+    "FETCH_ROOMS": "fetch_rooms",
+    "FETCH_ROOM_FAILURE": "fetch_room_failure"
+  }
+
   // thermostats
   export const thermostats = {
       "FETCH_THERMOSTAT": "fetch_thermostat",

@@ -9,6 +9,9 @@ import './utils/filter'
 import './plugins'
 import './registerServiceWorker'
 
+import apiService from './utils/apiService'
+apiService.initialize();
+
 Vue.config.productionTip = false
 
 new Vue({

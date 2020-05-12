@@ -11,7 +11,7 @@
             <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'room' }">Room</router-link>
+            <router-link class="nav-link" :to="{ name: 'roomDashboard' }">Room</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'lightingDashboard' }">Lighting</router-link>
@@ -23,7 +23,7 @@
       </div>
     </nav>
     <router-view/>
-    <home-dashboard></home-dashboard>
+    
   </div>
 </template>
 <script>

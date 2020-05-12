@@ -1,4 +1,20 @@
-export default {
+const state = {
+    processing: false,
+    error: null,
+    lighting: {},
+    lightings: {},
+    lightingCount: 0,
+}
+
+const getters = {
+    getProcessing: state => state.processing,
+    getError: state => state.error,
+    getLighting: state => state.lighting,
+    getLightings: state => state.lightings,
+    getLightingCount: state => state.lightings.length
+}
+
+const actions ={
     // get all lightings
     async getAllLightings({commit} ){
         console.log("Action: " + types.FETCH_LIGHTINGS)
@@ -71,4 +87,31 @@ export default {
             commit(global.FETCH_END)
         }
     }
+}
+
+const mutations = {
+    [global.FETCH_START](state) {
+        state.processing = true;
+    },
+    [global.FETCH_END](state) {
+        state.processing = false;
+    },
+    [types.FETCH_LIGHTING_FAILURE](state, error) {
+        state.error = error
+    },
+
+    // types
+    [types.FETCH_LIGHTING](state, lighting) {
+        state.lighting = lighting
+    },
+    [types.FETCH_LIGHTINGS](state, lightings) {
+        state.lightings = lightings
+    }
+}
+
+export default{
+    state,
+    getters,
+    actions,
+    mutations
 }

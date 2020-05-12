@@ -1,74 +1,77 @@
-import axios from '../plugins/axios'
+import Vue from "vue";
+import axios from "axios";
+import VueAxios from "vue-axios"
 
-export function query(resource, params) {
-    return axios
-        .get(`${resource}`, params)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+const API_URL = "http://127.0.0.1:7070/api"
 
-export function getByParam(resource, params = "") {
-    return axios
-        .get(`${resource}${param}`)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+const ApiService = {
+    initialize(){
+        Vue.use(VueAxios, axios);
+    },
 
-export function get(resource, slug = "") {
-    let uri = slug ? `${resource}/${slug}` : resource
-    return axios
-        .get(uri)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+    query(resource, params) {
+        return axios
+            .get(`${resource}`, params)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-export function post(resource, params) {
-    return axios
-        .post(`${resource}/${slug}`, params)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+    getByParam(resource, params = "") {
+        return axios
+            .get(`${resource}${param}`)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-export function update(resource, slug, params) {
-    return axios
-        .put(`${resource}/${slug}`, params)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+    get(resource, slug = "") {
+        let uri = slug ? `${resource}/${slug}` : resource
+        return axios
+            .get(uri)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-export function put(resource, params) {
-    return axios
-        .put(`${resource}`, params)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
-        })
-}
+    post(resource, params) {
+        return Vue.axios
+            .post(`${resource}`, params)
+            .then(()=>{
+                console.log("post")
+            }).catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-export function del(resource, slug) {
-    return axios
-        .delete(`${resource}/${slug}`)
-        .catch(error => {
-            errorMessage(`${resource} \n ${error.response.data.message}`)
+    update(resource, slug, params) {
+        return axios
+            .put(`${resource}/${slug}`, params)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-        })
-}
+    put(resource, params) {
+        return axios
+            .put(`${resource}`, params)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
+            })
+    },
 
-export function errorMessage(error) {
-    throw `Backend: ${error}`
-}
+    del(resource, slug) {
+        return axios
+            .delete(`${resource}/${slug}`)
+            .catch(error => {
+                errorMessage(`${resource} \n ${error.response.data.message}`)
 
-export default {
-    query,
-    getByParam,
-    get,
-    post,
-    update,
-    put,
-    del
-}
+            })
+    },
 
+    errorMessage(error) {
+        throw `Backend: ${error}`
+    }
+};
+
+export default ApiService;

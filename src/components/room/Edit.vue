@@ -2,29 +2,31 @@
   <div>
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Add New Thermostat</h3>
+        <h3 class="card-title">Edit Room</h3>
         <form>
           <div class="form-row">
             <div class="form-group col">
-              <label for="light">Name</label>
+              <labal>Van:</labal>
+              <label for="room">Name</label>
               <input
                 class="form-control"
-                id="light"
-                name="light"
+                id="room"
+                name="room"
                 type="text"
               >
             </div>
             <div class="form-group col">
-              <label for="light">Name</label>
+              <labal>Naar:</labal>
+              <label for="room">Name</label>
               <input
                 class="form-control"
-                id="light"
-                name="light"
+                id="room"
+                name="room"
                 type="text"
               >
             </div>
           </div>
-          <button type="submit" class="btn btn-primary text-white">Save New Thermostat</button>
+          <button type="submit" class="btn btn-primary text-white">Save New Room</button>
         </form>
       </div>
     </div>
@@ -33,7 +35,7 @@
 
 <script>
   export default {
-    name: "addThermostat"
+    name: "EditRoom"
   }
 </script>
 
