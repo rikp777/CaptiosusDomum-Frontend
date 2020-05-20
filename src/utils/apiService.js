@@ -10,7 +10,7 @@ const ApiService = {
     },
 
     query(resource, params) {
-        return axios
+        return Vue.axios
             .get(`${resource}`, params)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)
@@ -18,7 +18,7 @@ const ApiService = {
     },
 
     getByParam(resource, params = "") {
-        return axios
+        return Vue.axios
             .get(`${resource}${param}`)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)
@@ -27,7 +27,7 @@ const ApiService = {
 
     get(resource, slug = "") {
         let uri = slug ? `${resource}/${slug}` : resource
-        return axios
+        return Vue.axios
             .get(uri)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)
@@ -45,7 +45,7 @@ const ApiService = {
     },
 
     update(resource, slug, params) {
-        return axios
+        return Vue.axios
             .put(`${resource}/${slug}`, params)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)
@@ -53,7 +53,7 @@ const ApiService = {
     },
 
     put(resource, params) {
-        return axios
+        return Vue.axios
             .put(`${resource}`, params)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)
@@ -61,7 +61,8 @@ const ApiService = {
     },
 
     del(resource, slug) {
-        return axios
+        console.log(resource + slug);
+        return Vue.axios
             .delete(`${resource}/${slug}`)
             .catch(error => {
                 errorMessage(`${resource} \n ${error.response.data.message}`)

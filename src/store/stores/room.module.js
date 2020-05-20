@@ -22,7 +22,6 @@ const getters = {
 }
 
 const actions = {
-    /*
     // get all Rooms
     async getAllRooms({commit} ){
         console.log("Action: " + types.FETCH_RoomS)
@@ -56,18 +55,9 @@ const actions = {
             commit(global.FETCH_END)
         }
     },
-*/
+
     // create Room
     createRoom({commit}, payload){
-        /*commit(global.FETCH_START);
-        try {
-            const { data } = await ApiService.post(resourceUrl, payload)
-            commit(types.FETCH_Room, data)
-        } catch(error){
-            commit(types.FETCH_Room_FAILURE)
-            commit(global.FETCH_END)
-        }*/
-        console.log("test 2")
         return ApiService.post(apiUrl, payload)
         .then(({data}) => {
             commit(types.FETCH_ROOM, data)
@@ -76,32 +66,28 @@ const actions = {
             throw error
         })
     },
-/*
+
     // update Room
     async updateRoom({commit}, payload){
-        commit(global.FETCH_START);
-        try {
-            const { data } = await ApiService.update(resourceUrl, payload.id, payload)
-
-            commit(types.FETCH_Room, data)
-        } catch(error){
-            commit(types.FETCH_Room_FAILURE)
-            commit(global.FETCH_END)
-        }
+        return ApiService.update(apiUrl, payload.id, payload)
+        .then(({data}) => {
+            commit(types.FETCH_ROOM, data)
+        })
+        .catch((error) => {
+            throw error
+        })
     },
 
     // delete Room
     async deleteRoom({commit}, slug){
-        commit(global.FETCH_START);
-        try{
-            const { data } = await ApiService.del(slug)
-
-            commit(types.FETCH_Room, data)
-        } catch (error) {
-            commit(types.FETCH_Room_FAILURE)
-            commit(global.FETCH_END)
-        }
-    }*/
+        return ApiService.del(apiUrl, slug.roomid)
+        .then(({data}) => {
+            commit(types.FETCH_ROOM, data)
+        })
+        .catch((error) => {
+            throw error
+        })
+    }
 }
 
 const mutations = {

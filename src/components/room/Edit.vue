@@ -3,27 +3,38 @@
     <div class="card">
       <div class="card-body">
         <h3 class="card-title">Edit Room</h3>
-        <form>
+        <form @submit.prevent="onSubmit">
           <div class="form-row">
             <div class="form-group col">
-              <labal>Van:</labal>
-              <label for="room">Name</label>
+              <label for="id">ID</label>
               <input
+                v-model="form.id"
                 class="form-control"
-                id="room"
-                name="room"
+                id="id"
+                name="id"
+                type="number"
+              >
+            </div>
+            <div class="form-group col">
+              <label for="name">Name</label>
+              <input
+                v-model="form.name"
+                class="form-control"
+                id="name"
+                name="name"
                 type="text"
               >
             </div>
             <div class="form-group col">
               <labal>Naar:</labal>
-              <label for="room">Name</label>
+              <label for="description">Description</label>
               <input
+                v-model="form.description"
                 class="form-control"
-                id="room"
-                name="room"
+                id="description"
+                name="description"
                 type="text"
-              >
+              />
             </div>
           </div>
           <button type="submit" class="btn btn-primary text-white">Save New Room</button>
@@ -34,11 +45,30 @@
 </template>
 
 <script>
-  export default {
-    name: "EditRoom"
+export default {
+  name: "EditRoom",
+  data() {
+    return {
+      form: {
+        id: '',
+        name: '',
+        description: ''
+      }
+    };
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.form);
+      this.$store.dispatch("updateRoom", this.form);
+    },
+    onReset() {
+      this.form.id = ''
+      this.form.name = ''
+      this.form.description = ''
+    }
   }
+};
 </script>
 
 <style scoped>
-
 </style>
