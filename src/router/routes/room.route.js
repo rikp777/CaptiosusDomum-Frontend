@@ -10,6 +10,11 @@ export default [
           component: () => import('../../views/home/room/Dashboard')
         },
         {
+          name: 'roomView',
+          path: 'view',
+          component: () => import('../../components/room/View')
+        },
+        {
           name: 'roomEdit',
           path: 'edit',
           component: () => import('../../components/room/Edit')

@@ -15,6 +15,7 @@
           <div class="card-body">
             <div class="row mb-4">
               <h5 class="col card-title">Room One</h5>
+              <router-link :to="{ name: 'roomView' } " class="btn btn-primary">View room</router-link>
               <router-link :to="{ name: 'roomEdit' } " class="btn btn-primary">Edit room</router-link>
             </div>
             <div class="row">
