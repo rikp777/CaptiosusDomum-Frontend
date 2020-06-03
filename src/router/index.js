@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import lighting from './routes/lighting.route'
 import thermostat from './routes/thermostat.route'
 import room from './routes/room.route'
+import device from './routes/device.route'
 // import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -19,7 +20,8 @@ const routes = [
         children: [
           ...lighting,
           ...thermostat,
-          ...room
+          ...room,
+          ...device
         ]
       },
       {

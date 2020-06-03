@@ -3,12 +3,12 @@
     <div class="card mb-4">
       <div class="card-body">
         <div class="d-flex justify-content-between">
-          <h2 class="card-title">{Room name}</h2>
+          <h2 class="card-title">Woonkamer</h2>
           <router-link :to="{ name: 'deviceAdd' } " class="btn btn-primary float-right">Add device</router-link>
         </div>
         <div>
-          <h4>{Room description}</h4>
-          <router-link :to="{ name: 'delete ' } " class="btn btn-primary float-right">Delete room</router-link>
+          <h4>1 hoog en is in het midden van het huis</h4>
+          <router-link :to="{ name: 'roomDelete' } " class="btn btn-primary float-right">Delete room</router-link>
         </div>
       </div>
     </div>

@@ -21,8 +21,8 @@
             <div class="row">
               <p class="col">Woonkamer</p>
               <div class="col">
-                <p>3 - termostat(s)</p>
-                <p>2 - lighting(s)</p>
+                <p>1 - termostat(s)</p>
+                <p>1 - lighting(s)</p>
               </div>
             </div>
             

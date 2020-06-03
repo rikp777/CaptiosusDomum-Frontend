@@ -30,6 +30,13 @@ export const global= {
     "FETCH_ROOM_FAILURE": "fetch_room_failure"
   }
 
+  // rooms
+  export const devices = {
+    "FETCH_DEVICE": "fetch_device",
+    "FETCH_DEVICES": "fetch_devices",
+    "FETCH_DEVICE_FAILURE": "fetch_device_failure"
+  }
+
   // thermostats
   export const thermostats = {
       "FETCH_THERMOSTAT": "fetch_thermostat",
