@@ -18,6 +18,7 @@ const routes = [
         component: () => import('../views/home/Index'),
         children: [
           ...climate,
+          ...lighting
         ]
       },
       {

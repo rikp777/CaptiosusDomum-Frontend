@@ -1,125 +1,120 @@
 import {
-  devices as types, global
+  rooms as types, global
 } from "./mutationTypes"
 import ApiService from '../../utils/apiService'
+import contexts from "less/lib/less/contexts";
 
 const resourceUrl = "/lighting"
 
 // Initial State
 const state = {
-    processing: false,
-    error: null,
-    lighting: {},
-    lightings: {},
-    lightingCount: 0,
+  isLoading: true,
+  error: null,
+  lighting: {},
+  lightings: [],
 }
 // Getters
 const getters = {
-    getProcessing: state => state.processing,
-    getError: state => state.error,
-    getLighting: state => state.lighting,
-    getLightings: state => state.lightings,
-    getLightingCount: state => state.lightings.length
+  lightingIsLoading: state => state.isLoading,
+  lightingError: state => state.error,
+  lighting: state => state.lighting,
+  lightings: state => state.lightings,
 }
 // Actions
-const actions ={
-    // get all lightings
-    async getAllLightings({commit} ){
-        console.log("Action: " + types.FETCH_LIGHTINGS)
-        commit(global.FETCH_START)
-        try {
-            const { data } = await ApiService.get(resourceUrl)
+const actions = {
+  // get all Climates
+  getAllLightings({commit}) {
+    commit(global.FETCH_START)
+    return ApiService.get(resourceUrl)
+      .then(({data}) => {
+        commit('setLightings', data)
+        commit(global.FETCH_END)
+      })
+      .catch((error) => {
+        commit(global.SET_ERROR, true)
+        throw error
+      })
+  },
 
-            commit(types.FETCH_LIGHTINGS, data)
-            commit(global.FETCH_END)
-        } catch (error) {
-            commit(types.FETCH_LIGHTING, error)
-            commit(global.FETCH_END)
-        }
-    },
-
-    // get lighting by slug id
-    async getLighting({commit}, slug){
-        console.log(`Action: ${types.FETCH_LIGHTING} ${slug} `)
-        if(state.lighting.uid === slug){
-            return;
-        }
-
-        commit(global.FETCH_START);
-        try {
-            const { data } = await ApiService.getByParam(resourceUrl, slug)
-
-            commit(types.FETCH_LIGHTING, data)
-            commit(global.FETCH_END)
-        } catch (error) {
-            commit(types.FETCH_LIGHTING_FAILURE)
-            commit(global.FETCH_END)
-        }
-    },
-
-    // create lighting
-    async createLighting({commit}, payload){
-        commit(global.FETCH_START);
-        try {
-            const { data } = await ApiService.post(resourceUrl, payload)
-
-            commit(types.FETCH_LIGHTING, data)
-        } catch(error){
-            commit(types.FETCH_LIGHTING_FAILURE)
-            commit(global.FETCH_END)
-        }
-    },
-
-    // update lighting
-    async updateLighting({commit}, payload){
-        commit(global.FETCH_START);
-        try {
-            const { data } = await ApiService.update(resourceUrl, payload.id, payload)
-
-            commit(types.FETCH_LIGHTING, data)
-        } catch(error){
-            commit(types.FETCH_LIGHTING_FAILURE)
-            commit(global.FETCH_END)
-        }
-    },
-
-    // delete lighting
-    async deleteLighting({commit}, slug){
-        commit(global.FETCH_START);
-        try{
-            const { data } = await ApiService.del(slug)
-
-            commit(types.FETCH_LIGHTING, data)
-        } catch (error) {
-            commit(types.FETCH_LIGHTING_FAILURE)
-            commit(global.FETCH_END)
-        }
+  // get Climate by slug id
+  getLighting({commit}, slug) {
+    if (state.climate.id === slug) {
+      return;
     }
+
+    commit(global.FETCH_START);
+    return ApiService.getByParam(resourceUrl, slug)
+      .then(({data}) => {
+        commit('setLighting', data)
+        commit(global.FETCH_END)
+      })
+      .catch((error) => {
+        commit(global.SET_ERROR, true)
+        throw error
+      })
+  },
+
+  // Create Climate
+  createLighting({commit}, payload) {
+    return ApiService.post(resourceUrl, payload)
+      .then(({data}) => {
+        commit('setLighting', data)
+      })
+      .catch((error) => {
+        commit(global.SET_ERROR, true)
+        throw error
+      })
+  },
+
+  // Update Climate
+  updateLighting({commit}, payload) {
+    ApiService.update(resourceUrl, payload.id, payload)
+      .then(({data}) => {
+        commit('setLighting', data)
+      })
+      .catch((error) => {
+        commit(global.SET_ERROR, true)
+        throw error
+      })
+  },
+
+  // Delete Climate
+  deleteLighting({commit}, slug) {
+    return ApiService.del(resourceUrl, slug)
+      .then(() => {
+        alert('Deleted successfully')
+      })
+      .catch((error) => {
+        commit(global.SET_ERROR, true)
+        throw error
+      })
+  }
 }
 // Mutations
 const mutations = {
-    [global.FETCH_START](state) {
-        state.processing = true;
-    },
-    [global.FETCH_END](state) {
-        state.processing = false;
-    },
-    [types.FETCH_LIGHTING_FAILURE](state, error) {
-        state.error = error
-    },
+  [global.FETCH_START](state) {
+    state.error = false;
+    state.isLoading = true;
+  },
+  [global.FETCH_END](state) {
+    state.isLoading = false;
+  },
+  [global.SET_ERROR](state, error) {
+    state.error = error
+  },
 
-    // types
-    [types.FETCH_LIGHTING](state, lighting) {
-        state.lighting = lighting
-    },
-    [types.FETCH_LIGHTINGS](state, lightings) {
-        state.lightings = lightings
-    }
+  // types
+  setLighting(state, lighting) {
+    state.lighting = lighting
+  },
+  setLightings(state, lightings) {
+    state.lightings = lightings
+  }
 }
 
-export default{
-    state,
-    getters,
-    actions,
-    mutations
+export default {
+  state,
+  getters,
+  actions,
+  mutations
 }
