@@ -1,3 +1,11 @@
+import {
+  devices as types, global
+} from "./mutationTypes"
+import ApiService from '../../utils/apiService'
+
+const resourceUrl = "/user"
+
+// Initial State
 const state = {
     processing: false,
     error: null,
@@ -5,7 +13,7 @@ const state = {
     users: [],
     userCount: 0
 }
-
+// Getters
 const getters = {
     getProcessing: state => state.processing,
     getError: state => state.error,
@@ -18,7 +26,7 @@ const getters = {
         return state.users.find(user => user.uid === uid)
     }
 }
-
+// Actions
 const actions = {
     // get all users
     async getAllUsers({ commit }) {
@@ -93,7 +101,7 @@ const actions = {
         }
     }
 }
-
+// Mutations
 const mutations = {
     // globals
     [global.FETCH_START](state) {

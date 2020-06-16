@@ -27,10 +27,10 @@
             </div>
             <div class="form-group col">
               <label for="dropdown">DropDown</label>
-              <select 
+              <select
                 v-model="form.dropdown"
                 class="form-control"
-                name="dropdown" 
+                name="dropdown"
                 id="dropdown">
                 <option value="lighting">lighting</option>
                 <option value="thermostat">thermostat</option>
@@ -59,7 +59,10 @@ export default {
   methods: {
     onSubmit() {
       console.log(this.form);
-      this.$store.dispatch("createDevice", this.form);
+      this.$store.dispatch("createDevice", this.form)
+      .then(() => {
+        this.onReset()
+      });
     },
     onReset() {
       this.form.name = ''

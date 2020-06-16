@@ -3,7 +3,8 @@ import {
 } from "./mutationTypes"
 import ApiService from '../../utils/apiService'
 
-const apiUrl = "/Device"
+const resourceUrl = "/device"
+
 // Initial State
 const state = {
     processing: false,
@@ -12,7 +13,7 @@ const state = {
     Devices: {},
     DeviceCount: 0,
 }
-
+// Getters
 const getters = {
     getProcessing: state => state.processing,
     getError: state => state.error,
@@ -21,6 +22,7 @@ const getters = {
     getDeviceCount: state => state.Devices.length
 }
 
+// Actions
 const actions = {
     // get all Devices
     async getAllDevices({commit} ){
@@ -90,6 +92,7 @@ const actions = {
     }
 }
 
+// Mutations
 const mutations = {
     [global.FETCH_START](state) {
         state.processing = true;

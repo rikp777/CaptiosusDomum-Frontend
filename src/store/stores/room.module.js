@@ -3,7 +3,8 @@ import {
 } from "./mutationTypes"
 import ApiService from '../../utils/apiService'
 
-const apiUrl = "/room"
+const resourceUrl = "/room"
+
 // Initial State
 const state = {
     processing: false,

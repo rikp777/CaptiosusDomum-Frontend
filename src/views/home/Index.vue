@@ -17,13 +17,13 @@
             <router-link class="nav-link" :to="{ name: 'lightingDashboard' }">Lighting</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'thermostatDashboard' }">Thermostat</router-link>
+            <router-link class="nav-link" :to="{ name: 'climateDashboard' }">Climate</router-link>
           </li>
         </ul>
       </div>
     </nav>
     <router-view/>
-    
+
   </div>
 </template>
 <script>

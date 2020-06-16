@@ -1,9 +1,10 @@
 // global
 export const global= {
     "FETCH_START": "fetch_start",
-    "FETCH_END": "fetch_end"
+    "FETCH_END": "fetch_end",
+    "SET_ERROR": "set_error"
   }
-  
+
   // auth
   export const auth = {
     "LOGOUT": "logout",
@@ -12,10 +13,10 @@ export const global= {
     "FETCH_AUTH_USER_FAILURE": "fetch_authUser_failure",
     "AUTH_PURGE": "auth_purge"
   }
-  
+
   // lang
   export const SET_LOCALE = 'SET_LOCALE'
-  
+
   // lightings
   export const lightings = {
       "FETCH_LIGHTING": "fetch_lighting",

@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import lighting from './routes/lighting.route'
-import thermostat from './routes/thermostat.route'
+import climate from './routes/climate.route'
 import room from './routes/room.route'
 import device from './routes/device.route'
-// import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -18,10 +17,7 @@ const routes = [
         path: 'home',
         component: () => import('../views/home/Index'),
         children: [
-          ...lighting,
-          ...thermostat,
-          ...room,
-          ...device
+          ...climate,
         ]
       },
       {

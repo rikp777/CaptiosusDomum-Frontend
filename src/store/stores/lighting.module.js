@@ -1,3 +1,11 @@
+import {
+  devices as types, global
+} from "./mutationTypes"
+import ApiService from '../../utils/apiService'
+
+const resourceUrl = "/lighting"
+
+// Initial State
 const state = {
     processing: false,
     error: null,
@@ -5,7 +13,7 @@ const state = {
     lightings: {},
     lightingCount: 0,
 }
-
+// Getters
 const getters = {
     getProcessing: state => state.processing,
     getError: state => state.error,
@@ -13,7 +21,7 @@ const getters = {
     getLightings: state => state.lightings,
     getLightingCount: state => state.lightings.length
 }
-
+// Actions
 const actions ={
     // get all lightings
     async getAllLightings({commit} ){
@@ -88,7 +96,7 @@ const actions ={
         }
     }
 }
-
+// Mutations
 const mutations = {
     [global.FETCH_START](state) {
         state.processing = true;
