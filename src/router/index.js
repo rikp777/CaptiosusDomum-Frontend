@@ -9,7 +9,12 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '*',
+    redirect: '/climate/dashboard'
+  },
+  {
     path: '/',
+    redirect: '/climate/dashboard',
     component: () => import('../views/Main'),
     children: [
       {
